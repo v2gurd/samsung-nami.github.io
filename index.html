@@ -1,1794 +1,724 @@
+index.html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#0b57d0">
-<meta name="description" content="مرکز خدمات سامسونگ نامی در تبریز | خدمات تخصصی نصب، سرویس و تعمیر محصولات سامسونگ">
-
-<title>Samsung Nami | مرکز خدمات سامسونگ نامی</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1428A0">
+<meta name="description" content="مرکز خدمات سامسونگ نامی در تبریز - مرکز خدمات مجاز Samsung با کد مجوز IR200477">
+<title>مرکز خدمات سامسونگ نامی | Samsung Nami</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
-
-:root{
-    --blue:#0b57d0;
-    --blue-dark:#063b91;
-    --blue-light:#eaf2ff;
-    --black:#0b0d10;
-    --dark:#11151b;
-    --gray:#667085;
-    --light:#f6f8fb;
-    --white:#ffffff;
-    --border:#e5e9f0;
-    --shadow:0 18px 50px rgba(15,30,55,.10);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-    font-family:'Vazirmatn',sans-serif;
-    background:var(--white);
-    color:var(--black);
-    line-height:1.8;
-    overflow-x:hidden;
+font-family:Vazirmatn,sans-serif;
+background:#f7f8fa;color:#111;line-height:1.9
 }
-
-a{
-    text-decoration:none;
-    color:inherit;
+a{text-decoration:none;color:inherit}
+.header{
+position:sticky;top:0;z-index:1000;
+background:rgba(255,255,255,.94);
+backdrop-filter:blur(18px);
+border-bottom:1px solid #e7e7e7
 }
-
-button{
-    font-family:inherit;
-}
-
-/* =========================
-   SPLASH SCREEN
-========================= */
-
-.splash{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    background:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    animation:splashOut 1s ease 2.8s forwards;
-}
-
-.splash::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:rgba(11,87,208,.07);
-    filter:blur(10px);
-}
-
-.splash-content{
-    position:relative;
-    text-align:center;
-    animation:splashIn 1s cubic-bezier(.2,.8,.2,1);
-}
-
-.splash-line{
-    width:0;
-    height:4px;
-    background:var(--blue);
-    border-radius:10px;
-    margin:20px auto 0;
-    animation:lineGrow 1.2s ease .5s forwards;
-}
-
-.splash h1{
-    font-size:clamp(27px,7vw,58px);
-    font-weight:900;
-    color:#101317;
-    letter-spacing:-1.5px;
-}
-
-.splash p{
-    margin-top:8px;
-    color:#667085;
-    font-size:14px;
-    font-weight:600;
-    letter-spacing:1px;
-    direction:ltr;
-}
-
-@keyframes splashIn{
-    from{
-        opacity:0;
-        transform:translateY(25px) scale(.96);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-}
-
-@keyframes lineGrow{
-    to{
-        width:90px;
-    }
-}
-
-@keyframes splashOut{
-    to{
-        opacity:0;
-        visibility:hidden;
-    }
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(0,0,0,.06);
-}
-
 .nav{
-    width:min(1180px,92%);
-    height:76px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
+max-width:1200px;margin:auto;padding:17px 20px;
+display:flex;align-items:center;justify-content:space-between;gap:20px
 }
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
-}
-
-.logo-mark{
-    width:40px;
-    height:40px;
-    border-radius:11px;
-    background:var(--blue);
-    display:grid;
-    place-items:center;
-    color:white;
-    font-weight:900;
-    font-size:17px;
-    box-shadow:0 8px 20px rgba(11,87,208,.22);
-}
-
-.logo-text{
-    display:flex;
-    flex-direction:column;
-    line-height:1.25;
-}
-
-.logo-text strong{
-    font-size:18px;
-    font-weight:900;
-}
-
-.logo-text span{
-    font-size:10px;
-    color:#667085;
-    direction:ltr;
-    text-align:right;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:28px;
-}
-
-.nav-links a{
-    font-size:14px;
-    font-weight:600;
-    color:#3d4652;
-    transition:.25s;
-}
-
-.nav-links a:hover{
-    color:var(--blue);
-}
-
-.nav-call{
-    background:var(--black);
-    color:#fff;
-    padding:11px 19px;
-    border-radius:12px;
-    font-size:13px;
-    font-weight:700;
-    transition:.25s;
-}
-
-.nav-call:hover{
-    background:var(--blue);
-    transform:translateY(-2px);
-}
-
-/* =========================
-   HERO
-========================= */
-
+.logo{font-size:23px;font-weight:900;color:#111}
+.logo span{color:#1428A0}
+nav{display:flex;gap:22px}
+nav a{font-weight:600;color:#333;transition:.2s}
+nav a:hover{color:#1428A0}
+.menu{display:none;border:0;background:none;font-size:25px}
 .hero{
-    position:relative;
-    min-height:700px;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-    background:
-        radial-gradient(circle at 85% 25%,rgba(11,87,208,.13),transparent 32%),
-        linear-gradient(180deg,#fff 0%,#f7faff 100%);
+min-height:680px;display:flex;align-items:center;
+background:
+radial-gradient(circle at 85% 30%,rgba(20,40,160,.13),transparent 28%),
+linear-gradient(135deg,#fff 0%,#f4f6fb 100%);
 }
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    border-radius:50%;
-    border:1px solid rgba(11,87,208,.08);
-    left:-250px;
-    bottom:-350px;
-}
-
-.hero-inner{
-    width:min(1180px,92%);
-    margin:auto;
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    align-items:center;
-    gap:60px;
-}
-
-.hero-content{
-    animation:heroContent .8s ease .25s both;
-}
-
-@keyframes heroContent{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
+.hero-inner{max-width:1200px;width:100%;margin:auto;padding:80px 20px}
 .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:var(--blue-light);
-    color:var(--blue-dark);
-    padding:8px 14px;
-    border-radius:100px;
-    font-size:12px;
-    font-weight:800;
-    margin-bottom:20px;
+display:inline-flex;align-items:center;gap:8px;
+padding:8px 15px;border-radius:50px;
+background:#eaf0ff;color:#1428A0;font-weight:800;font-size:13px
 }
-
-.badge-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#16a34a;
-    box-shadow:0 0 0 5px rgba(22,163,74,.10);
-}
-
-.hero h1{
-    font-size:clamp(34px,5vw,64px);
-    line-height:1.25;
-    font-weight:900;
-    letter-spacing:-2px;
-    margin-bottom:18px;
-}
-
-.hero h1 span{
-    color:var(--blue);
-}
-
-.hero-description{
-    max-width:600px;
-    color:#596474;
-    font-size:16px;
-    margin-bottom:30px;
-}
-
-.hero-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-}
-
+.hero h1{font-size:clamp(35px,6vw,68px);line-height:1.25;margin:22px 0 15px;font-weight:900}
+.hero h1 span{color:#1428A0}
+.hero p{max-width:700px;color:#555;font-size:18px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
-    min-height:52px;
-    padding:0 22px;
-    border-radius:13px;
-    font-size:14px;
-    font-weight:800;
-    transition:.3s;
+display:inline-flex;align-items:center;justify-content:center;
+padding:13px 24px;border-radius:12px;font-weight:800;
+transition:.25s;border:1px solid transparent
 }
-
-.btn-primary{
-    background:var(--blue);
-    color:#fff;
-    box-shadow:0 12px 28px rgba(11,87,208,.20);
+.btn-primary{background:#1428A0;color:#fff;box-shadow:0 10px 25px #1428a025}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-light{background:#fff;border-color:#ddd}
+.container{max-width:1200px;margin:auto;padding:80px 20px}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title h2{font-size:35px;font-weight:900}
+.section-title p{color:#777;margin-top:8px}
+.grid{
+display:grid;grid-template-columns:repeat(5,1fr);gap:18px
 }
-
-.btn-primary:hover{
-    background:var(--blue-dark);
-    transform:translateY(-3px);
+.card{
+background:#fff;border:1px solid #e7e7e7;border-radius:22px;
+padding:28px 20px;transition:.3s;
+box-shadow:0 8px 30px rgba(0,0,0,.035)
 }
-
-.btn-secondary{
-    background:#fff;
-    border:1px solid var(--border);
-    color:#1b2028;
+.card:hover{transform:translateY(-7px);box-shadow:0 18px 45px rgba(20,40,160,.1)}
+.icon{
+width:58px;height:58px;border-radius:16px;
+background:#eef2ff;color:#1428A0;
+display:flex;align-items:center;justify-content:center;
+font-size:27px;margin-bottom:17px
 }
-
-.btn-secondary:hover{
-    border-color:var(--blue);
-    color:var(--blue);
-    transform:translateY(-3px);
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{font-size:14px;color:#777}
+.card a{display:inline-block;margin-top:15px;color:#1428A0;font-weight:800;font-size:14px}
+.trust{
+background:#101217;color:#fff;border-radius:30px;padding:45px;
+display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center
 }
-
-/* HERO VISUAL */
-
-.hero-visual{
-    position:relative;
-    min-height:470px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.visual-card{
-    position:relative;
-    width:min(430px,90%);
-    height:390px;
-    border-radius:30px;
-    overflow:hidden;
-    background:
-        linear-gradient(145deg,#111923,#07152b);
-    box-shadow:0 35px 80px rgba(0,25,70,.20);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.visual-card::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    background:rgba(11,87,208,.35);
-    filter:blur(40px);
-    top:-100px;
-    right:-80px;
-}
-
-.visual-card::after{
-    content:"";
-    position:absolute;
-    width:240px;
-    height:240px;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    filter:blur(30px);
-    bottom:-100px;
-    left:-80px;
-}
-
-.visual-content{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    color:white;
-}
-
-.visual-samsung{
-    font-size:43px;
-    font-weight:900;
-    letter-spacing:3px;
-    direction:ltr;
-}
-
-.visual-divider{
-    width:65px;
-    height:3px;
-    border-radius:10px;
-    background:#3f8cff;
-    margin:18px auto;
-}
-
-.visual-content h3{
-    font-size:21px;
-    font-weight:800;
-}
-
-.visual-content p{
-    color:#aebbd0;
-    font-size:12px;
-    margin-top:5px;
-}
-
-.floating-card{
-    position:absolute;
-    background:white;
-    border:1px solid rgba(0,0,0,.05);
-    box-shadow:var(--shadow);
-    border-radius:16px;
-    padding:14px 17px;
-    z-index:4;
-}
-
-.floating-one{
-    top:55px;
-    right:-5px;
-}
-
-.floating-two{
-    bottom:45px;
-    left:-10px;
-}
-
-.floating-card strong{
-    display:block;
-    font-size:13px;
-}
-
-.floating-card span{
-    color:#7a8491;
-    font-size:10px;
-}
-
-/* =========================
-   TRUST STRIP
-========================= */
-
-.trust-strip{
-    background:var(--black);
-    color:#fff;
-}
-
-.trust-inner{
-    width:min(1180px,92%);
-    margin:auto;
-    min-height:95px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    align-items:center;
-    gap:20px;
-}
-
-.trust-item{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:13px;
-}
-
-.trust-icon{
-    width:40px;
-    height:40px;
-    border-radius:11px;
-    background:rgba(255,255,255,.08);
-    display:grid;
-    place-items:center;
-    color:#6ea4ff;
-    font-size:18px;
-}
-
-.trust-item strong{
-    display:block;
-    font-size:13px;
-}
-
-.trust-item span{
-    color:#8c96a5;
-    font-size:10px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-section{
-    padding:95px 0;
-}
-
-.container{
-    width:min(1180px,92%);
-    margin:auto;
-}
-
-.section-heading{
-    text-align:center;
-    max-width:700px;
-    margin:0 auto 48px;
-}
-
-.section-heading .mini{
-    color:var(--blue);
-    font-size:12px;
-    font-weight:900;
-    margin-bottom:8px;
-}
-
-.section-heading h2{
-    font-size:clamp(27px,4vw,40px);
-    font-weight:900;
-    letter-spacing:-1px;
-    margin-bottom:10px;
-}
-
-.section-heading p{
-    color:#6b7583;
-    font-size:14px;
-}
-
-/* =========================
-   SERVICES
-========================= */
-
-.services{
-    background:#fff;
-}
-
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:16px;
-}
-
-.service-card{
-    position:relative;
-    min-height:225px;
-    padding:24px 19px;
-    border:1px solid var(--border);
-    border-radius:20px;
-    background:#fff;
-    transition:.35s;
-    overflow:hidden;
-}
-
-.service-card::after{
-    content:"";
-    position:absolute;
-    width:110px;
-    height:110px;
-    border-radius:50%;
-    background:var(--blue-light);
-    left:-45px;
-    bottom:-50px;
-    transition:.35s;
-}
-
-.service-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(11,87,208,.25);
-    box-shadow:var(--shadow);
-}
-
-.service-card:hover::after{
-    transform:scale(1.6);
-}
-
-.service-number{
-    font-size:11px;
-    color:#a0a7b2;
-    font-weight:800;
-}
-
-.service-icon{
-    width:54px;
-    height:54px;
-    border-radius:16px;
-    background:var(--blue-light);
-    display:grid;
-    place-items:center;
-    font-size:26px;
-    margin:18px 0 17px;
-}
-
-.service-card h3{
-    font-size:16px;
-    font-weight:900;
-    margin-bottom:5px;
-}
-
-.service-card p{
-    color:#7b8490;
-    font-size:11px;
-}
-
-/* =========================
-   ABOUT
-========================= */
-
-.about{
-    background:var(--light);
-}
-
-.about-grid{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.about-visual{
-    min-height:430px;
-    border-radius:30px;
-    background:
-        radial-gradient(circle at 30% 25%,rgba(75,139,255,.5),transparent 28%),
-        linear-gradient(145deg,#101720,#07152b);
-    position:relative;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-}
-
-.about-visual::before{
-    content:"NAMI";
-    position:absolute;
-    font-size:130px;
-    font-weight:900;
-    letter-spacing:-7px;
-    color:rgba(255,255,255,.035);
-    bottom:20px;
-    left:-5px;
-    direction:ltr;
-}
-
-.about-label{
-    position:absolute;
-    top:28px;
-    right:28px;
-    padding:8px 13px;
-    border:1px solid rgba(255,255,255,.13);
-    border-radius:100px;
-    color:#d9e5ff;
-    font-size:10px;
-}
-
-.about-center{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    color:#fff;
-}
-
-.about-center .big{
-    font-size:58px;
-    font-weight:900;
-    direction:ltr;
-    letter-spacing:2px;
-}
-
-.about-center span{
-    color:#9facbd;
-    font-size:12px;
-}
-
-.about-content .mini{
-    color:var(--blue);
-    font-size:12px;
-    font-weight:900;
-}
-
-.about-content h2{
-    font-size:clamp(28px,4vw,42px);
-    font-weight:900;
-    line-height:1.35;
-    margin:8px 0 18px;
-}
-
-.about-content > p{
-    color:#667085;
-    font-size:14px;
-    margin-bottom:25px;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:13px;
-}
-
-.feature{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:14px;
-}
-
-.feature strong{
-    display:block;
-    font-size:13px;
-    margin-bottom:2px;
-}
-
-.feature span{
-    font-size:10px;
-    color:#7c8591;
-}
-
-/* =========================
-   LICENSE
-========================= */
-
+.trust p{color:#c9cbd0}
 .license{
-    padding-top:0;
-    background:var(--light);
+background:#fff;border-radius:20px;padding:25px;color:#111;
+border:1px solid #eee
 }
-
-.license-box{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:24px;
-    padding:32px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-    box-shadow:0 12px 40px rgba(15,30,55,.05);
+.license strong{font-size:25px;color:#1428A0;display:block;margin-top:7px}
+.info{
+display:grid;grid-template-columns:repeat(3,1fr);gap:18px
 }
-
-.license-content{
-    display:flex;
-    align-items:center;
-    gap:18px;
+.info-box{
+background:#fff;border:1px solid #e7e7e7;border-radius:18px;padding:25px
 }
-
-.license-icon{
-    width:58px;
-    height:58px;
-    border-radius:17px;
-    background:#eaf8ef;
-    color:#16803a;
-    display:grid;
-    place-items:center;
-    font-size:24px;
+.info-box b{display:block;margin-bottom:7px}
+footer{background:#0d0f14;color:#fff;padding:40px 20px;text-align:center}
+footer p{color:#aaa;margin-top:8px;font-size:13px}
+.float{
+position:fixed;bottom:22px;left:22px;
+width:58px;height:58px;border-radius:50%;
+background:#1428A0;color:white;display:flex;
+align-items:center;justify-content:center;
+font-size:23px;box-shadow:0 12px 30px #1428a050;z-index:999
 }
-
-.license-content h3{
-    font-size:17px;
-    font-weight:900;
+@media(max-width:850px){
+.grid{grid-template-columns:repeat(2,1fr)}
+.trust{grid-template-columns:1fr}
+.info{grid-template-columns:1fr}
+nav{display:none}
+.menu{display:block}
 }
-
-.license-content p{
-    color:#707b88;
-    font-size:11px;
-}
-
-.license-badge{
-    background:#0d8b43;
-    color:#fff;
-    padding:10px 16px;
-    border-radius:11px;
-    font-size:11px;
-    font-weight:800;
-}
-
-/* =========================
-   CTA
-========================= */
-
-.cta{
-    padding:100px 0;
-}
-
-.cta-box{
-    position:relative;
-    overflow:hidden;
-    border-radius:30px;
-    padding:65px 50px;
-    background:
-        radial-gradient(circle at 85% 25%,rgba(76,139,255,.28),transparent 30%),
-        linear-gradient(135deg,#07111e,#0b1e3d);
-    color:#fff;
-}
-
-.cta-box::after{
-    content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.07);
-    left:-130px;
-    bottom:-200px;
-}
-
-.cta-content{
-    position:relative;
-    z-index:2;
-    max-width:700px;
-}
-
-.cta-content .mini{
-    color:#75aaff;
-    font-size:12px;
-    font-weight:800;
-}
-
-.cta-content h2{
-    font-size:clamp(27px,4vw,42px);
-    line-height:1.35;
-    margin:8px 0 12px;
-}
-
-.cta-content p{
-    color:#b0bdcf;
-    font-size:13px;
-    margin-bottom:25px;
-}
-
-.cta-phone{
-    direction:ltr;
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    background:#fff;
-    color:#101317;
-    padding:13px 18px;
-    border-radius:12px;
-    font-weight:900;
-    font-size:15px;
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact{
-    background:#f7f9fc;
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.contact-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:27px;
-}
-
-.contact-card h3{
-    font-size:18px;
-    font-weight:900;
-    margin-bottom:20px;
-}
-
-.contact-list{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.contact-item{
-    display:flex;
-    align-items:flex-start;
-    gap:13px;
-}
-
-.contact-icon{
-    width:39px;
-    height:39px;
-    flex-shrink:0;
-    border-radius:11px;
-    background:var(--blue-light);
-    display:grid;
-    place-items:center;
-    color:var(--blue);
-}
-
-.contact-item strong{
-    display:block;
-    font-size:12px;
-}
-
-.contact-item span{
-    color:#707b88;
-    font-size:11px;
-}
-
-.contact-phone{
-    direction:ltr;
-    text-align:right;
-    color:var(--blue);
-    font-weight:800;
-}
-
-.map-box{
-    min-height:320px;
-    border-radius:22px;
-    background:
-        linear-gradient(rgba(7,17,30,.82),rgba(7,17,30,.82)),
-        repeating-linear-gradient(
-            45deg,
-            #162233,
-            #162233 10px,
-            #1b2a3d 10px,
-            #1b2a3d 20px
-        );
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:30px;
-}
-
-.map-box-inner{
-    max-width:400px;
-}
-
-.map-pin{
-    font-size:40px;
-    margin-bottom:8px;
-}
-
-.map-box h3{
-    font-size:19px;
-    margin-bottom:7px;
-}
-
-.map-box p{
-    color:#adb9ca;
-    font-size:11px;
-    line-height:2;
-}
-
-.map-button{
-    display:inline-flex;
-    margin-top:17px;
-    background:#fff;
-    color:#111;
-    padding:10px 17px;
-    border-radius:10px;
-    font-size:11px;
-    font-weight:800;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#080b10;
-    color:#fff;
-    padding:50px 0 25px;
-}
-
-.footer-inner{
-    width:min(1180px,92%);
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    gap:30px;
-    align-items:flex-start;
-}
-
-.footer-brand strong{
-    font-size:21px;
-    font-weight:900;
-}
-
-.footer-brand p{
-    color:#7d8795;
-    font-size:11px;
-    margin-top:7px;
-}
-
-.footer-contact{
-    text-align:left;
-}
-
-.footer-contact span{
-    display:block;
-    color:#84909f;
-    font-size:10px;
-    margin-bottom:5px;
-}
-
-.footer-contact a{
-    direction:ltr;
-    font-size:15px;
-    font-weight:800;
-}
-
-.copyright{
-    width:min(1180px,92%);
-    margin:35px auto 0;
-    padding-top:18px;
-    border-top:1px solid rgba(255,255,255,.07);
-    color:#596371;
-    font-size:9px;
-    text-align:center;
-}
-
-/* =========================
-   FLOATING CALL
-========================= */
-
-.floating-call{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    z-index:500;
-    width:56px;
-    height:56px;
-    border-radius:50%;
-    background:var(--blue);
-    color:#fff;
-    display:grid;
-    place-items:center;
-    font-size:21px;
-    box-shadow:0 12px 30px rgba(11,87,208,.35);
-    transition:.3s;
-}
-
-.floating-call:hover{
-    transform:scale(1.08);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:1000px){
-
-    .nav-links{
-        display:none;
-    }
-
-    .hero-inner{
-        grid-template-columns:1fr;
-        padding:70px 0;
-        text-align:center;
-    }
-
-    .hero-description{
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .hero-visual{
-        min-height:430px;
-    }
-
-    .service-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .about-grid{
-        grid-template-columns:1fr;
-    }
-
-    .about-visual{
-        min-height:350px;
-    }
-
-    .trust-inner{
-        grid-template-columns:1fr;
-        padding:25px 0;
-    }
-
-    .trust-item{
-        justify-content:flex-start;
-    }
-}
-
-@media(max-width:700px){
-
-    section{
-        padding:70px 0;
-    }
-
-    .nav{
-        height:68px;
-    }
-
-    .logo-text strong{
-        font-size:15px;
-    }
-
-    .nav-call{
-        padding:9px 13px;
-        font-size:11px;
-    }
-
-    .hero{
-        min-height:auto;
-    }
-
-    .hero-inner{
-        padding:65px 0 55px;
-    }
-
-    .hero h1{
-        font-size:34px;
-        letter-spacing:-1px;
-    }
-
-    .hero-description{
-        font-size:13px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .btn{
-        width:100%;
-    }
-
-    .hero-visual{
-        min-height:370px;
-    }
-
-    .visual-card{
-        height:320px;
-    }
-
-    .visual-samsung{
-        font-size:34px;
-    }
-
-    .floating-one{
-        top:25px;
-        right:-3px;
-    }
-
-    .floating-two{
-        bottom:25px;
-        left:-3px;
-    }
-
-    .service-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .service-card{
-        min-height:205px;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .license-box{
-        flex-direction:column;
-        align-items:flex-start;
-        padding:25px;
-    }
-
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-    }
-
-    .footer-contact{
-        text-align:right;
-    }
-}
-
-@media(max-width:430px){
-
-    .service-grid{
-        grid-template-columns:1fr;
-    }
-
-    .service-card{
-        min-height:180px;
-    }
-
-    .splash h1{
-        font-size:25px;
-    }
+@media(max-width:500px){
+.grid{grid-template-columns:1fr}
+.hero-inner{padding:60px 20px}
+.container{padding:60px 20px}
+.trust{padding:28px}
 }
 </style>
 </head>
-
 <body>
-
-<!-- =========================
-     SPLASH
-========================= -->
-
-<div class="splash">
-    <div class="splash-content">
-        <h1>مرکز خدمات سامسونگ نامی</h1>
-        <div class="splash-line"></div>
-        <p>SAMSUNG NAMI SERVICE CENTER</p>
-    </div>
+<header class="header">
+<div class="nav">
+<a class="logo" href="index.html">Samsung <span>Nami</span></a>
+<button class="menu" onclick="toggleMenu()">☰</button>
+<nav id="nav">
+<a href="index.html">خانه</a>
+<a href="services.html">خدمات</a>
+<a href="about.html">درباره ما</a>
+<a href="license.html">مجوز</a>
+<a href="contact.html">تماس با ما</a>
+</nav>
 </div>
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-    <nav class="nav">
-
-        <a href="#home" class="logo">
-            <div class="logo-mark">N</div>
-
-            <div class="logo-text">
-                <strong>Nami</strong>
-                <span>SAMSUNG SERVICE CENTER</span>
-            </div>
-        </a>
-
-        <div class="nav-links">
-            <a href="#services">خدمات</a>
-            <a href="#about">درباره ما</a>
-            <a href="#contact">تماس با ما</a>
-        </div>
-
-        <a class="nav-call" href="tel:09146880415">
-            تماس با مرکز
-        </a>
-
-    </nav>
 </header>
-
-<!-- =========================
-     HERO
-========================= -->
-
-<main id="home">
-
 <section class="hero">
-
-    <div class="hero-inner">
-
-        <div class="hero-content">
-
-            <div class="badge">
-                <span class="badge-dot"></span>
-                مرکز خدمات مجاز Samsung
-            </div>
-
-            <h1>
-                خدمات تخصصی
-                <span>سامسونگ</span>
-                در تبریز
-            </h1>
-
-            <p class="hero-description">
-                مرکز خدمات سامسونگ نامی؛ ارائه خدمات تخصصی نصب،
-                سرویس و تعمیر محصولات سامسونگ با تمرکز بر کیفیت،
-                دقت و رضایت مشتری.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="tel:09146880415" class="btn btn-primary">
-                    ☎ تماس فوری
-                </a>
-
-                <a href="#services" class="btn btn-secondary">
-                    مشاهده خدمات
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="hero-visual">
-
-            <div class="floating-card floating-one">
-                <strong>✓ خدمات تخصصی</strong>
-                <span>Samsung Service</span>
-            </div>
-
-            <div class="visual-card">
-
-                <div class="visual-content">
-
-                    <div class="visual-samsung">
-                        SAMSUNG
-                    </div>
-
-                    <div class="visual-divider"></div>
-
-                    <h3>مرکز خدمات نامی</h3>
-
-                    <p>
-                        نصب، سرویس و تعمیر
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="floating-card floating-two">
-                <strong>تبریز</strong>
-                <span>آذربایجان شرقی</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     TRUST
-========================= -->
-
-<div class="trust-strip">
-
-    <div class="trust-inner">
-
-        <div class="trust-item">
-            <div class="trust-icon">✓</div>
-            <div>
-                <strong>مرکز خدمات مجاز</strong>
-                <span>Samsung Authorized Service</span>
-            </div>
-        </div>
-
-        <div class="trust-item">
-            <div class="trust-icon">⚙</div>
-            <div>
-                <strong>خدمات تخصصی</strong>
-                <span>نصب، سرویس و تعمیر</span>
-            </div>
-        </div>
-
-        <div class="trust-item">
-            <div class="trust-icon">⌖</div>
-            <div>
-                <strong>تبریز</strong>
-                <span>آذربایجان شرقی</span>
-            </div>
-        </div>
-
-    </div>
-
+<div class="hero-inner">
+<div class="badge">✓ مرکز خدمات مجاز Samsung</div>
+<h1>مرکز خدمات<br><span>سامسونگ نامی</span></h1>
+<p>
+ارائه خدمات تخصصی تعمیر و سرویس لوازم خانگی سامسونگ
+در تبریز با رویکرد حرفه‌ای، شفاف و قابل اعتماد.
+</p>
+<div class="buttons">
+<a class="btn btn-primary" href="services.html">مشاهده خدمات</a>
+<a class="btn btn-light" href="tel:09146880415">تماس با مرکز</a>
 </div>
-
-<!-- =========================
-     SERVICES
-========================= -->
-
-<section class="services" id="services">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="mini">OUR SERVICES</div>
-
-            <h2>خدمات تخصصی ما</h2>
-
-            <p>
-                خدمات نصب، سرویس و تعمیر محصولات سامسونگ
-                توسط مرکز خدمات سامسونگ نامی.
-            </p>
-
-        </div>
-
-        <div class="service-grid">
-
-            <div class="service-card">
-
-                <div class="service-number">01</div>
-
-                <div class="service-icon">❄️</div>
-
-                <h3>کولر گازی</h3>
-
-                <p>
-                    نصب، سرویس و تعمیر کولرهای گازی سامسونگ
-                </p>
-
-            </div>
-
-            <div class="service-card">
-
-                <div class="service-number">02</div>
-
-                <div class="service-icon">🧊</div>
-
-                <h3>یخچال</h3>
-
-                <p>
-                    سرویس و تعمیر تخصصی یخچال‌های سامسونگ
-                </p>
-
-            </div>
-
-            <div class="service-card">
-
-                <div class="service-number">03</div>
-
-                <div class="service-icon">🧺</div>
-
-                <h3>لباسشویی</h3>
-
-                <p>
-                    تعمیر و سرویس انواع ماشین لباسشویی سامسونگ
-                </p>
-
-            </div>
-
-            <div class="service-card">
-
-                <div class="service-number">04</div>
-
-                <div class="service-icon">🍽️</div>
-
-                <h3>ظرفشویی</h3>
-
-                <p>
-                    بررسی، سرویس و تعمیر ماشین ظرفشویی سامسونگ
-                </p>
-
-            </div>
-
-            <div class="service-card">
-
-                <div class="service-number">05</div>
-
-                <div class="service-icon">🧹</div>
-
-                <h3>جارو برقی</h3>
-
-                <p>
-                    خدمات تخصصی تعمیر و سرویس جاروبرقی سامسونگ
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="about" id="about">
-
-    <div class="container">
-
-        <div class="about-grid">
-
-            <div class="about-visual">
-
-                <div class="about-label">
-                    SAMSUNG NAMI
-                </div>
-
-                <div class="about-center">
-                    <div class="big">Nami</div>
-                    <span>Samsung Service Center</span>
-                </div>
-
-            </div>
-
-            <div class="about-content">
-
-                <div class="mini">ABOUT NAMI</div>
-
-                <h2>
-                    انتخاب مطمئن برای
-                    خدمات سامسونگ در تبریز
-                </h2>
-
-                <p>
-                    مرکز خدمات سامسونگ نامی با تمرکز بر ارائه
-                    خدمات تخصصی نصب، سرویس و تعمیر محصولات
-                    سامسونگ در تبریز فعالیت می‌کند.
-                </p>
-
-                <div class="features">
-
-                    <div class="feature">
-                        <strong>✓ خدمات تخصصی</strong>
-                        <span>تمرکز بر محصولات Samsung</span>
-                    </div>
-
-                    <div class="feature">
-                        <strong>✓ پاسخگویی سریع</strong>
-                        <span>ارتباط مستقیم با مرکز</span>
-                    </div>
-
-                    <div class="feature">
-                        <strong>✓ خدمات نصب و سرویس</strong>
-                        <span>از نصب تا سرویس تخصصی</span>
-                    </div>
-
-                    <div class="feature">
-                        <strong>✓ حضور در تبریز</strong>
-                        <span>آذربایجان شرقی</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     LICENSE
-========================= -->
-
-<section class="license">
-
-    <div class="container">
-
-        <div class="license-box">
-
-            <div class="license-content">
-
-                <div class="license-icon">
-                    ✓
-                </div>
-
-                <div>
-                    <h3>مرکز خدمات مجاز Samsung</h3>
-
-                    <p>
-                        ارائه خدمات تخصصی محصولات سامسونگ
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="license-badge">
-                Authorized Service
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta">
-
-    <div class="container">
-
-        <div class="cta-box">
-
-            <div class="cta-content">
-
-                <div class="mini">
-                    SAMSUNG NAMI
-                </div>
-
-                <h2>
-                    دستگاه سامسونگ شما
-                    نیاز به خدمات دارد؟
-                </h2>
-
-                <p>
-                    برای دریافت اطلاعات بیشتر و هماهنگی خدمات
-                    با مرکز خدمات سامسونگ نامی تماس بگیرید.
-                </p>
-
-                <a href="tel:09146880415" class="cta-phone">
-                    ☎ 09146880415
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section class="contact" id="contact">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="mini">CONTACT US</div>
-
-            <h2>با ما در ارتباط باشید</h2>
-
-            <p>
-                برای دریافت خدمات و هماهنگی با مرکز تماس بگیرید.
-            </p>
-
-        </div>
-
-        <div class="contact-grid">
-
-            <div class="contact-card">
-
-                <h3>اطلاعات مرکز</h3>
-
-                <div class="contact-list">
-
-                    <div class="contact-item">
-
-                        <div class="contact-icon">☎</div>
-
-                        <div>
-                            <strong>شماره تماس</strong>
-                            <a class="contact-phone" href="tel:09146880415">
-                                09146880415
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="contact-item">
-
-                        <div class="contact-icon">⌖</div>
-
-                        <div>
-                            <strong>آدرس</strong>
-                            <span>
-                                تبریز، خیابان منتظری،
-                                پایین‌تر از چهارراه فدک،
-                                نرسیده به مسجد غیاث،
-                                مرکز خدمات سامسونگ نامی
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="contact-item">
-
-                        <div class="contact-icon">◷</div>
-
-                        <div>
-                            <strong>محدوده فعالیت</strong>
-                            <span>
-                                تبریز — آذربایجان شرقی
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="map-box">
-
-                <div class="map-box-inner">
-
-                    <div class="map-pin">⌖</div>
-
-                    <h3>مرکز خدمات سامسونگ نامی</h3>
-
-                    <p>
-                        تبریز، خیابان منتظری، پایین‌تر از چهارراه فدک،
-                        نرسیده به مسجد غیاث
-                    </p>
-
-                    <a
-                        class="map-button"
-                        href="https://www.google.com/maps/search/?api=1&query=مرکز+خدمات+سامسونگ+نامی+تبریز"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        مشاهده مسیر روی نقشه
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="footer-inner">
-
-        <div class="footer-brand">
-
-            <strong>Nami</strong>
-
-            <p>
-                مرکز خدمات سامسونگ نامی
-            </p>
-
-        </div>
-
-        <div class="footer-contact">
-
-            <span>تماس با مرکز</span>
-
-            <a href="tel:09146880415">
-                09146880415
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="copyright">
-        © 2026 Samsung Nami Service Center — Tabriz
-    </div>
-
-</footer>
-
-<!-- =========================
-     FLOATING CALL
-========================= -->
-
-<a
-    href="tel:09146880415"
-    class="floating-call"
-    aria-label="تماس با مرکز"
->
-    ☎
+<section class="container">
+<div class="section-title">
+<h2>خدمات ما</h2>
+<p>برای مشاهده جزئیات هر خدمت وارد صفحه اختصاصی شوید.</p>
+</div>
+<div class="grid">
+<a class="card" href="air-conditioner.html">
+<div class="icon">❄</div>
+<h3>کولر گازی</h3>
+<p>تعمیر، سرویس و بررسی مشکلات کولر گازی سامسونگ</p>
 </a>
+<a class="card" href="refrigerator.html">
+<div class="icon">▣</div>
+<h3>یخچال</h3>
+<p>عیب‌یابی و تعمیر انواع یخچال سامسونگ</p>
+</a>
+<a class="card" href="washing-machine.html">
+<div class="icon">◉</div>
+<h3>لباسشویی</h3>
+<p>تعمیر و سرویس تخصصی ماشین لباسشویی</p>
+</a>
+<a class="card" href="dishwasher.html">
+<div class="icon">▤</div>
+<h3>ظرفشویی</h3>
+<p>رفع ایرادات و سرویس ماشین ظرفشویی</p>
+</a>
+<a class="card" href="vacuum-cleaner.html">
+<div class="icon">⌁</div>
+<h3>جاروبرقی</h3>
+<p>تعمیر و سرویس جاروبرقی سامسونگ</p>
+</a>
+</div>
+</section>
+<section class="container">
+<div class="trust">
+<div>
+<div class="badge">مجوز و اعتبار</div>
+<h2 style="font-size:32px;margin:18px 0 8px">مرکز خدمات مجاز Samsung</h2>
+<p>مرکز خدمات سامسونگ نامی با مجوز نمایندگی با کد IR200477 فعالیت می‌کند.</p>
+</div>
+<div class="license">
+<span>کد مجوز نمایندگی</span>
+<strong>IR200477</strong>
+</div>
+</div>
+</section>
+<section class="container">
+<div class="section-title">
+<h2>اطلاعات مرکز</h2>
+</div>
+<div class="info">
+<div class="info-box">
+<b>📍 آدرس</b>
+تبریز، خیابان منتظری، پایین‌تر از چهارراه فدک، نرسیده به مسجد غیاث
+</div>
+<div class="info-box">
+<b>📞 تلفن</b>
+<a href="tel:09146880415">09146880415</a>
+</div>
+<div class="info-box">
+<b>🏢 نام مرکز</b>
+مرکز خدمات سامسونگ نامی
+</div>
+</div>
+</section>
+<footer>
+<strong>Samsung Nami</strong>
+<p>مرکز خدمات سامسونگ نامی | کد مجوز IR200477</p>
+<p>تبریز، آذربایجان شرقی</p>
+</footer>
+<a class="float" href="tel:09146880415">☎</a>
+<script>
+function toggleMenu(){
+const n=document.getElementById("nav");
+n.style.display=n.style.display==="flex"?"none":"flex";
+n.style.position="absolute";
+n.style.top="70px";
+n.style.right="15px";
+n.style.background="#fff";
+n.style.padding="20px";
+n.style.borderRadius="15px";
+n.style.flexDirection="column";
+n.style.boxShadow="0 10px 35px #0002";
+}
+</script>
+</body>
+</html>
 
+⸻
+
+services.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>خدمات | مرکز خدمات سامسونگ نامی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn,sans-serif;background:#f7f8fa;color:#111}
+header{background:#fff;border-bottom:1px solid #eee;padding:18px 6%;display:flex;justify-content:space-between}
+.logo{font-size:22px;font-weight:900}.logo span{color:#1428a0}
+nav a{margin:0 10px;color:#333;text-decoration:none;font-weight:600}
+main{max-width:1100px;margin:auto;padding:70px 20px}
+h1{font-size:45px;text-align:center}.sub{text-align:center;color:#777;margin-bottom:45px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{background:#fff;padding:30px;border-radius:22px;border:1px solid #e5e5e5;text-decoration:none;color:#111}
+.card:hover{border-color:#1428a0;transform:translateY(-4px)}
+.icon{font-size:35px;color:#1428a0}.card h2{font-size:21px}
+.card p{color:#777;font-size:14px}
+footer{text-align:center;background:#0d0f14;color:white;padding:35px}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">Samsung <span>Nami</span></a>
+<nav>
+<a href="index.html">خانه</a>
+<a href="services.html">خدمات</a>
+<a href="contact.html">تماس</a>
+</nav>
+</header>
+<main>
+<h1>خدمات مرکز</h1>
+<p class="sub">خدمت موردنظر خود را انتخاب کنید.</p>
+<div class="grid">
+<a class="card" href="air-conditioner.html"><div class="icon">❄</div><h2>کولر گازی</h2><p>ثبت ایراد و درخواست خدمات</p></a>
+<a class="card" href="refrigerator.html"><div class="icon">▣</div><h2>یخچال</h2><p>ثبت ایراد و درخواست خدمات</p></a>
+<a class="card" href="washing-machine.html"><div class="icon">◉</div><h2>لباسشویی</h2><p>ثبت ایراد و درخواست خدمات</p></a>
+<a class="card" href="dishwasher.html"><div class="icon">▤</div><h2>ظرفشویی</h2><p>ثبت ایراد و درخواست خدمات</p></a>
+<a class="card" href="vacuum-cleaner.html"><div class="icon">⌁</div><h2>جاروبرقی</h2><p>ثبت ایراد و درخواست خدمات</p></a>
+</div>
+</main>
+<footer>مرکز خدمات سامسونگ نامی | IR200477</footer>
+</body>
+</html>
+
+⸻
+
+air-conditioner.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تعمیر کولر گازی سامسونگ | نامی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+header{background:white;padding:18px 6%;border-bottom:1px solid #eee}
+header a{text-decoration:none;color:#111;font-weight:900;font-size:22px}
+header span{color:#1428a0}
+main{max-width:850px;margin:auto;padding:60px 20px}
+.box{background:#fff;border:1px solid #e5e5e5;border-radius:25px;padding:35px;box-shadow:0 15px 40px #00000008}
+h1{font-size:38px;margin-top:0}.blue{color:#1428a0}
+ul{line-height:2.3;color:#555}
+button{width:100%;border:0;border-radius:13px;background:#1428a0;color:#fff;padding:16px;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;margin-top:15px}
+label{display:block;margin-top:15px;font-weight:700}
+input,textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-family:inherit;margin-top:7px}
+textarea{min-height:110px;resize:vertical}
+.small{font-size:12px;color:#777}
+</style>
+</head>
+<body>
+<header><a href="index.html">Samsung <span>Nami</span></a></header>
+<main>
+<div class="box">
+<h1>خدمات <span class="blue">کولر گازی</span></h1>
+<p>برای ثبت درخواست تعمیر یا سرویس کولر گازی، فرم زیر را تکمیل کنید.</p>
+<ul>
+<li>عیب‌یابی و بررسی دستگاه</li>
+<li>تعمیر و سرویس</li>
+<li>بررسی مشکلات عملکردی</li>
+<li>ثبت درخواست مراجعه</li>
+</ul>
+<hr>
+<h2>ثبت ایراد دستگاه</h2>
+<form onsubmit="sendTelegram(event)">
+<label>نام</label>
+<input id="first" required>
+<label>نام خانوادگی</label>
+<input id="last" required>
+<label>کد ملی</label>
+<input id="national" inputmode="numeric" required>
+<label>شماره تلفن</label>
+<input id="phone" type="tel" required>
+<label>آدرس کامل</label>
+<textarea id="address" required></textarea>
+<label>شرح ایراد دستگاه</label>
+<textarea id="problem" required placeholder="مثلاً دستگاه روشن می‌شود ولی خنک نمی‌کند"></textarea>
+<button type="submit">ثبت درخواست و ارسال در تلگرام</button>
+<p class="small">
+پس از ثبت، تلگرام برای ارسال درخواست به مسئول مرکز باز می‌شود.
+</p>
+</form>
+</div>
+</main>
+<script>
+function sendTelegram(e){
+e.preventDefault();
+const first=document.getElementById("first").value.trim();
+const last=document.getElementById("last").value.trim();
+const national=document.getElementById("national").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const address=document.getElementById("address").value.trim();
+const problem=document.getElementById("problem").value.trim();
+const text=
+`🛠 درخواست جدید خدمات سامسونگ نامی
+📱 نوع دستگاه: کولر گازی
+👤 نام و نام خانوادگی: ${first} ${last}
+🆔 کد ملی: ${national}
+📞 شماره تماس: ${phone}
+📍 آدرس:
+${address}
+🔧 شرح ایراد:
+${problem}
+🏢 مرکز خدمات سامسونگ نامی
+📋 کد مجوز: IR200477`;
+const url="https://t.me/ALINAMI2020?text="+encodeURIComponent(text);
+window.location.href=url;
+}
+</script>
+</body>
+</html>
+
+⸻
+
+refrigerator.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تعمیر یخچال سامسونگ | نامی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+header{background:#fff;padding:18px 6%;border-bottom:1px solid #eee}header a{font-size:22px;font-weight:900;text-decoration:none;color:#111}header span{color:#1428a0}
+main{max-width:850px;margin:auto;padding:60px 20px}.box{background:#fff;border:1px solid #e5e5e5;border-radius:25px;padding:35px}
+h1{font-size:38px}.blue{color:#1428a0}
+ul{line-height:2.2;color:#555}
+label{display:block;margin-top:14px;font-weight:700}
+input,textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-family:inherit;margin-top:6px}
+textarea{min-height:100px}
+button{width:100%;padding:16px;margin-top:18px;border:0;border-radius:12px;background:#1428a0;color:white;font-family:inherit;font-weight:800;font-size:16px}
+small{color:#777}
+</style>
+</head>
+<body>
+<header><a href="index.html">Samsung <span>Nami</span></a></header>
+<main><div class="box">
+<h1>خدمات <span class="blue">یخچال</span></h1>
+<p>ثبت درخواست تعمیر و سرویس یخچال سامسونگ.</p>
+<ul><li>عیب‌یابی</li><li>تعمیر</li><li>سرویس</li><li>ثبت درخواست مراجعه</li></ul>
+<form onsubmit="sendTelegram(event)">
+<label>نام</label><input id="first" required>
+<label>نام خانوادگی</label><input id="last" required>
+<label>کد ملی</label><input id="national" required inputmode="numeric">
+<label>شماره تلفن</label><input id="phone" required type="tel">
+<label>آدرس کامل</label><textarea id="address" required></textarea>
+<label>شرح ایراد دستگاه</label><textarea id="problem" required></textarea>
+<button>ثبت درخواست و ارسال در تلگرام</button>
+<small>پس از ثبت، تلگرام برای ارسال پیام باز می‌شود.</small>
+</form>
+</div></main>
+<script>
+function sendTelegram(e){
+e.preventDefault();
+const text=`🛠 درخواست جدید خدمات سامسونگ نامی
+📱 نوع دستگاه: یخچال
+👤 نام و نام خانوادگی: ${first.value} ${last.value}
+🆔 کد ملی: ${national.value}
+📞 شماره تماس: ${phone.value}
+📍 آدرس:
+${address.value}
+🔧 شرح ایراد:
+${problem.value}
+🏢 مرکز خدمات سامسونگ نامی
+📋 کد مجوز: IR200477`;
+location.href="https://t.me/ALINAMI2020?text="+encodeURIComponent(text);
+}
+</script>
+</body>
+</html>
+
+⸻
+
+washing-machine.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تعمیر لباسشویی سامسونگ | نامی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+header{background:#fff;padding:18px 6%;border-bottom:1px solid #eee}header a{font-size:22px;font-weight:900;text-decoration:none;color:#111}header span{color:#1428a0}
+main{max-width:850px;margin:auto;padding:60px 20px}.box{background:#fff;border:1px solid #e5e5e5;border-radius:25px;padding:35px}
+h1{font-size:38px}.blue{color:#1428a0}ul{line-height:2.2;color:#555}
+label{display:block;margin-top:14px;font-weight:700}input,textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-family:inherit;margin-top:6px}textarea{min-height:100px}
+button{width:100%;padding:16px;margin-top:18px;border:0;border-radius:12px;background:#1428a0;color:#fff;font-family:inherit;font-weight:800;font-size:16px}
+</style>
+</head>
+<body>
+<header><a href="index.html">Samsung <span>Nami</span></a></header>
+<main><div class="box">
+<h1>خدمات <span class="blue">لباسشویی</span></h1>
+<p>برای ثبت ایراد ماشین لباسشویی فرم زیر را تکمیل کنید.</p>
+<ul><li>عیب‌یابی</li><li>تعمیر</li><li>سرویس تخصصی</li></ul>
+<form onsubmit="sendTelegram(event)">
+<label>نام</label><input id="first" required>
+<label>نام خانوادگی</label><input id="last" required>
+<label>کد ملی</label><input id="national" required>
+<label>شماره تلفن</label><input id="phone" type="tel" required>
+<label>آدرس کامل</label><textarea id="address" required></textarea>
+<label>شرح ایراد</label><textarea id="problem" required></textarea>
+<button>ثبت درخواست و ارسال در تلگرام</button>
+</form>
+</div></main>
+<script>
+function sendTelegram(e){
+e.preventDefault();
+const text=`🛠 درخواست جدید خدمات سامسونگ نامی
+📱 نوع دستگاه: لباسشویی
+👤 نام و نام خانوادگی: ${first.value} ${last.value}
+🆔 کد ملی: ${national.value}
+📞 شماره تماس: ${phone.value}
+📍 آدرس:
+${address.value}
+🔧 شرح ایراد:
+${problem.value}
+🏢 مرکز خدمات سامسونگ نامی
+📋 کد مجوز: IR200477`;
+location.href="https://t.me/ALINAMI2020?text="+encodeURIComponent(text);
+}
+</script>
+</body>
+</html>
+
+⸻
+
+dishwasher.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تعمیر ظرفشویی سامسونگ | نامی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+header{background:#fff;padding:18px 6%;border-bottom:1px solid #eee}header a{font-size:22px;font-weight:900;text-decoration:none;color:#111}header span{color:#1428a0}
+main{max-width:850px;margin:auto;padding:60px 20px}.box{background:#fff;border:1px solid #e5e5e5;border-radius:25px;padding:35px}
+h1{font-size:38px}.blue{color:#1428a0}ul{line-height:2.2;color:#555}
+label{display:block;margin-top:14px;font-weight:700}input,textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-family:inherit;margin-top:6px}textarea{min-height:100px}
+button{width:100%;padding:16px;margin-top:18px;border:0;border-radius:12px;background:#1428a0;color:#fff;font-family:inherit;font-weight:800;font-size:16px}
+</style>
+</head>
+<body>
+<header><a href="index.html">Samsung <span>Nami</span></a></header>
+<main><div class="box">
+<h1>خدمات <span class="blue">ظرفشویی</span></h1>
+<p>ثبت درخواست تعمیر و سرویس ماشین ظرفشویی سامسونگ.</p>
+<ul><li>عیب‌یابی</li><li>تعمیر</li><li>سرویس</li></ul>
+<form onsubmit="sendTelegram(event)">
+<label>نام</label><input id="first" required>
+<label>نام خانوادگی</label><input id="last" required>
+<label>کد ملی</label><input id="national" required>
+<label>شماره تلفن</label><input id="phone" type="tel" required>
+<label>آدرس کامل</label><textarea id="address" required></textarea>
+<label>شرح ایراد</label><textarea id="problem" required></textarea>
+<button>ثبت درخواست و ارسال در تلگرام</button>
+</form>
+</div></main>
+<script>
+function sendTelegram(e){
+e.preventDefault();
+const text=`🛠 درخواست جدید خدمات سامسونگ نامی
+📱 نوع دستگاه: ظرفشویی
+👤 نام و نام خانوادگی: ${first.value} ${last.value}
+🆔 کد ملی: ${national.value}
+📞 شماره تماس: ${phone.value}
+📍 آدرس:
+${address.value}
+🔧 شرح ایراد:
+${problem.value}
+🏢 مرکز خدمات سامسونگ نامی
+📋 کد مجوز: IR200477`;
+location.href="https://t.me/ALINAMI2020?text="+encodeURIComponent(text);
+}
+</script>
+</body>
+</html>
+
+⸻
+
+vacuum-cleaner.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تعمیر جاروبرقی سامسونگ | نامی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+header{background:#fff;padding:18px 6%;border-bottom:1px solid #eee}header a{font-size:22px;font-weight:900;text-decoration:none;color:#111}header span{color:#1428a0}
+main{max-width:850px;margin:auto;padding:60px 20px}.box{background:#fff;border:1px solid #e5e5e5;border-radius:25px;padding:35px}
+h1{font-size:38px}.blue{color:#1428a0}ul{line-height:2.2;color:#555}
+label{display:block;margin-top:14px;font-weight:700}input,textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-family:inherit;margin-top:6px}textarea{min-height:100px}
+button{width:100%;padding:16px;margin-top:18px;border:0;border-radius:12px;background:#1428a0;color:#fff;font-family:inherit;font-weight:800;font-size:16px}
+</style>
+</head>
+<body>
+<header><a href="index.html">Samsung <span>Nami</span></a></header>
+<main><div class="box">
+<h1>خدمات <span class="blue">جاروبرقی</span></h1>
+<p>ثبت درخواست تعمیر و سرویس جاروبرقی سامسونگ.</p>
+<ul><li>عیب‌یابی</li><li>تعمیر</li><li>سرویس</li></ul>
+<form onsubmit="sendTelegram(event)">
+<label>نام</label><input id="first" required>
+<label>نام خانوادگی</label><input id="last" required>
+<label>کد ملی</label><input id="national" required>
+<label>شماره تلفن</label><input id="phone" type="tel" required>
+<label>آدرس کامل</label><textarea id="address" required></textarea>
+<label>شرح ایراد</label><textarea id="problem" required></textarea>
+<button>ثبت درخواست و ارسال در تلگرام</button>
+</form>
+</div></main>
+<script>
+function sendTelegram(e){
+e.preventDefault();
+const text=`🛠 درخواست جدید خدمات سامسونگ نامی
+📱 نوع دستگاه: جاروبرقی
+👤 نام و نام خانوادگی: ${first.value} ${last.value}
+🆔 کد ملی: ${national.value}
+📞 شماره تماس: ${phone.value}
+📍 آدرس:
+${address.value}
+🔧 شرح ایراد:
+${problem.value}
+🏢 مرکز خدمات سامسونگ نامی
+📋 کد مجوز: IR200477`;
+location.href="https://t.me/ALINAMI2020?text="+encodeURIComponent(text);
+}
+</script>
+</body>
+</html>
+
+⸻
+
+about.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>درباره مرکز | Samsung Nami</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+header{background:#fff;padding:18px 7%;border-bottom:1px solid #eee}
+header a{font-weight:900;font-size:22px;text-decoration:none;color:#111}
+header span{color:#1428a0}
+main{max-width:850px;margin:auto;padding:70px 20px}
+.box{background:#fff;padding:40px;border-radius:25px;border:1px solid #eee}
+h1{font-size:40px}.blue{color:#1428a0}p{color:#555;line-height:2}
+</style>
+</head>
+<body>
+<header><a href="index.html">Samsung <span>Nami</span></a></header>
+<main><div class="box">
+<h1>درباره <span class="blue">Samsung Nami</span></h1>
+<p>
+مرکز خدمات سامسونگ نامی در تبریز با هدف ارائه خدمات تخصصی،
+پاسخ‌گویی مناسب و رسیدگی حرفه‌ای به مشکلات لوازم خانگی سامسونگ فعالیت می‌کند.
+</p>
+<p><b>کد مجوز نمایندگی: IR200477</b></p>
+<p>خدمات مرکز شامل کولر گازی، یخچال، لباسشویی، ظرفشویی و جاروبرقی است.</p>
+</div></main>
+</body>
+</html>
+
+⸻
+
+license.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مجوز نمایندگی | Samsung Nami</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+main{max-width:700px;margin:100px auto;padding:20px}
+.box{text-align:center;background:#fff;padding:50px 25px;border-radius:28px;border:1px solid #eee}
+.badge{display:inline-block;background:#eaf0ff;color:#1428a0;padding:8px 16px;border-radius:50px;font-weight:800}
+h1{font-size:35px}.code{font-size:42px;font-weight:900;color:#1428a0;letter-spacing:2px;margin:20px}
+a{color:#1428a0}
+</style>
+</head>
+<body>
+<main><div class="box">
+<div class="badge">✓ مرکز خدمات مجاز Samsung</div>
+<h1>مجوز نمایندگی</h1>
+<p>شماره / کد مجوز مرکز خدمات:</p>
+<div class="code">IR200477</div>
+<p>مرکز خدمات سامسونگ نامی - تبریز</p>
+<a href="index.html">بازگشت به سایت</a>
+</div></main>
+</body>
+</html>
+
+⸻
+
+contact.html
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تماس با ما | Samsung Nami</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Vazirmatn;background:#f7f8fa;color:#111}
+main{max-width:900px;margin:auto;padding:70px 20px}
+.box{background:#fff;padding:35px;border-radius:25px;border:1px solid #eee}
+.item{padding:20px 0;border-bottom:1px solid #eee}
+.item:last-child{border:0}
+b{display:block;margin-bottom:6px}.btn{display:inline-block;background:#1428a0;color:white;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:800}
+</style>
+</head>
+<body>
+<main><div class="box">
+<h1>تماس با مرکز خدمات سامسونگ نامی</h1>
+<div class="item">
+<b>📞 شماره تماس</b>
+<a href="tel:09146880415">09146880415</a>
+</div>
+<div class="item">
+<b>📍 آدرس</b>
+تبریز، خیابان منتظری، پایین‌تر از چهارراه فدک، نرسیده به مسجد غیاث
+</div>
+<div class="item">
+<b>📋 کد مجوز</b>
+IR200477
+</div>
+<div class="item">
+<b>🗺️ مسیریابی</b>
+<a class="btn" target="_blank"
+href="https://www.google.com/maps/search/?api=1&query=مرکز+خدمات+سامسونگ+نامی+تبریز">
+باز کردن نقشه
+</a>
+</div>
+<div class="item">
+<b>💬 ثبت درخواست خدمات</b>
+<p>برای ثبت ایراد دستگاه وارد صفحه مربوط به دستگاه شوید.</p>
+<a class="btn" href="services.html">مشاهده خدمات</a>
+</div>
+</div></main>
 </body>
 </html>
