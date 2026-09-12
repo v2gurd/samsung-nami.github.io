@@ -142,7 +142,8 @@ header{position:sticky;top:0;z-index:5000;background:rgba(255,255,255,.92);backd
 .hero:before{content:"";position:absolute;left:-14%;top:-30%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(20,40,160,.06),transparent 70%)}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 14px 7px 10px;border-radius:100px;background:var(--ice);color:var(--blue);font-size:12.5px;font-weight:700;margin-bottom:24px;border:1px solid #dde3f8}
-.eyebrow i{width:6px;height:6px;background:var(--success);border-radius:50%;box-shadow:0 0 0 4px rgba(15,138,95,.14)}
+.eyebrow i{width:6px;height:6px;background:var(--success);border-radius:50%;box-shadow:0 0 0 4px rgba(15,138,95,.14);animation:dotPulse 1.6s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 h1{font-size:clamp(32px,4.6vw,54px);line-height:1.32;letter-spacing:-1px;margin-bottom:22px;color:var(--ink);font-weight:800}
 .hero h1 b{color:var(--blue);font-weight:800}
 .hero-text{color:var(--muted);font-size:16px;max-width:620px}
@@ -153,15 +154,38 @@ h1{font-size:clamp(32px,4.6vw,54px);line-height:1.32;letter-spacing:-1px;margin-
 .btn-outline{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
 .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
 
-/* ---- HERO ILLUSTRATION ---- */
+/* ---- HERO / FLOW ILLUSTRATION PANEL ---- */
 .hero-illustration{position:relative;border-radius:var(--r-xl);background:linear-gradient(160deg,var(--ice) 0%,#e6eafb 100%);border:1px solid var(--line);overflow:hidden;padding:10px;box-shadow:0 30px 70px -30px rgba(10,16,48,.25)}
 .hero-illustration:before{content:"";position:absolute;inset:0;background:radial-gradient(circle,var(--line) 1.2px,transparent 1.4px) 0 0/26px 26px;opacity:.7}
 .hero-illustration svg{position:relative;display:block;width:100%;height:auto}
-.tech-badge{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:9px 15px 9px 11px;font-size:11.5px;font-weight:700;box-shadow:0 14px 30px -12px rgba(10,16,48,.25);z-index:2}
-.tech-badge.top{top:22px;right:22px;color:var(--success)}
-.tech-badge.top i{width:6px;height:6px;border-radius:50%;background:var(--success);box-shadow:0 0 0 4px rgba(15,138,95,.14)}
-.tech-badge.bottom{bottom:22px;left:22px;color:var(--blue);flex-direction:row-reverse}
-.tech-badge.bottom span{direction:ltr}
+.flow-illustration{padding:22px;max-width:860px;margin:0 auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---- character animation ---- */
+.tech-figure{animation:figureBob 2.8s ease-in-out infinite;transform-box:view-box;transform-origin:190px 220px}
+.tech-toolbox{animation:boxSwing 2.1s ease-in-out infinite;transform-box:view-box;transform-origin:148px 155px}
+.tech-wave{animation:waveArm 1.05s ease-in-out infinite;transform-box:view-box;transform-origin:234px 155px}
+.tech-shadow{animation:shadowPulse 2.8s ease-in-out infinite;transform-box:view-box;transform-origin:190px 412px}
+.tech-glint{animation:glintPulse 1.5s ease-in-out infinite}
+@keyframes figureBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes boxSwing{0%,100%{transform:rotate(0deg)}25%{transform:rotate(7deg)}75%{transform:rotate(-7deg)}}
+@keyframes waveArm{0%,100%{transform:rotate(0deg)}25%{transform:rotate(16deg)}50%{transform:rotate(2deg)}75%{transform:rotate(-9deg)}}
+@keyframes shadowPulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(.9);opacity:.6}}
+@keyframes glintPulse{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:.9;transform:scale(1.35)}}
+
+/* ---- call/tracking scene animation ---- */
+.call-wave{transform-box:view-box;animation:callWave 1.6s ease-out infinite}
+.call-wave.w1{transform-origin:132px 80px;animation-delay:0s}
+.call-wave.w2{transform-origin:132px 80px;animation-delay:.28s}
+.call-wave.w3{transform-origin:132px 80px;animation-delay:.56s}
+@keyframes callWave{0%{opacity:1;transform:scale(.7)}100%{opacity:0;transform:scale(1.25)}}
+.progress-fill{transform-box:view-box;transform-origin:436px 137px;animation:progressFill 2.4s ease-in-out infinite}
+@keyframes progressFill{0%{transform:scaleX(0)}60%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+.tech-check{transform-box:view-box;transform-origin:606px 46px;animation:checkPop 2.4s ease-in-out infinite}
+@keyframes checkPop{0%,52%{transform:scale(0);opacity:0}66%{transform:scale(1.3);opacity:1}78%{transform:scale(1);opacity:1}100%{transform:scale(1);opacity:1}}
+.live-dot{transform-box:view-box;transform-origin:588px 110px;animation:glintPulse 1.3s ease-in-out infinite}
+.customer-arm{transform-box:view-box;transform-origin:118px 140px;animation:callSway 2.4s ease-in-out infinite}
+@keyframes callSway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-3deg)}}
 
 /* ---- DEVICE ICONS ---- */
 .device-icon{width:26px;height:26px;color:var(--blue)}
@@ -334,7 +358,6 @@ footer a:hover{color:#fff}
   .hero-actions .btn{width:100%}
   .trust-card,.location-card,.detail-card{padding:22px}
   .floating-call{left:16px;bottom:16px}
-  .tech-badge{font-size:10.5px;padding:7px 12px 7px 9px}
 }
 </style>
 </head>
@@ -378,40 +401,114 @@ footer a:hover{color:#fff}
         </div>
 
         <div class="hero-illustration">
-          <div class="tech-badge top"><i></i>مرکز خدمات مجاز</div>
-          <div class="tech-badge bottom">کد مجوز <span>IR200477</span></div>
           <svg viewBox="0 0 380 440" xmlns="http://www.w3.org/2000/svg">
             <circle cx="190" cy="220" r="150" fill="rgba(20,40,160,.05)"/>
             <circle cx="190" cy="220" r="150" fill="none" stroke="rgba(20,40,160,.15)" stroke-width="1.5" stroke-dasharray="4 7"/>
-            <ellipse cx="190" cy="412" rx="130" ry="13" fill="rgba(10,16,48,.08)"/>
-            <g>
-              <rect x="46" y="272" width="88" height="54" rx="10" fill="#ffffff" stroke="#1428A0" stroke-width="3"/>
-              <path d="M68 272 q22 -28 44 0" fill="none" stroke="#1428A0" stroke-width="5" stroke-linecap="round"/>
-              <rect x="64" y="294" width="12" height="9" rx="2" fill="#1428A0"/>
-              <rect x="104" y="294" width="12" height="9" rx="2" fill="#1428A0"/>
-              <line x1="96" y1="248" x2="110" y2="273" stroke="#5c6278" stroke-width="5" stroke-linecap="round"/>
-              <rect x="88" y="238" width="16" height="8" rx="3" fill="#8890a5"/>
+            <ellipse class="tech-shadow" cx="190" cy="412" rx="130" ry="13" fill="rgba(10,16,48,.08)"/>
+            <g class="tech-figure">
+
+              <g class="tech-toolbox">
+                <path d="M148 155 Q112 190 98 240" fill="none" stroke="#1428A0" stroke-width="25" stroke-linecap="round"/>
+                <rect x="46" y="272" width="88" height="54" rx="10" fill="#ffffff" stroke="#1428A0" stroke-width="3"/>
+                <path d="M68 272 q22 -28 44 0" fill="none" stroke="#1428A0" stroke-width="5" stroke-linecap="round"/>
+                <rect x="64" y="294" width="12" height="9" rx="2" fill="#1428A0"/>
+                <rect x="104" y="294" width="12" height="9" rx="2" fill="#1428A0"/>
+                <line x1="96" y1="248" x2="110" y2="273" stroke="#5c6278" stroke-width="5" stroke-linecap="round"/>
+                <rect x="88" y="238" width="16" height="8" rx="3" fill="#8890a5"/>
+                <circle cx="97" cy="246" r="13" fill="#e8b48f"/>
+                <circle class="tech-glint" cx="118" cy="282" r="4" fill="#ffffff"/>
+              </g>
+
+              <rect x="150" y="268" width="40" height="108" rx="14" fill="#10173f"/>
+              <rect x="192" y="268" width="40" height="108" rx="14" fill="#151c46"/>
+              <rect x="146" y="366" width="50" height="20" rx="8" fill="#1c2140"/>
+              <rect x="188" y="366" width="50" height="20" rx="8" fill="#1c2140"/>
+
+              <rect x="144" y="132" width="94" height="138" rx="24" fill="#1428A0"/>
+              <line x1="191" y1="142" x2="191" y2="252" stroke="#0c1b74" stroke-width="3"/>
+              <rect x="163" y="160" width="18" height="18" rx="5" fill="#ffffff"/>
+              <circle cx="172" cy="169" r="5" fill="none" stroke="#1428A0" stroke-width="2"/>
+              <path d="M168 132 L191 152 L214 132 Z" fill="#0c1b74"/>
+              <rect x="144" y="254" width="94" height="14" rx="4" fill="#0a1030"/>
+
+              <g class="tech-wave">
+                <path d="M234 155 Q268 140 272 95" fill="none" stroke="#1428A0" stroke-width="24" stroke-linecap="round"/>
+                <circle cx="273" cy="88" r="13" fill="#e8b48f"/>
+                <g stroke="#e8b48f" stroke-width="4" stroke-linecap="round">
+                  <line x1="264" y1="78" x2="258" y2="64"/>
+                  <line x1="273" y1="75" x2="273" y2="60"/>
+                  <line x1="282" y1="78" x2="288" y2="64"/>
+                </g>
+              </g>
+
+              <rect x="180" y="112" width="22" height="24" rx="6" fill="#e8b48f"/>
+              <circle cx="191" cy="90" r="34" fill="#e8b48f"/>
+              <path d="M157 90 A34 34 0 0 1 225 90 L225 74 A34 34 0 0 0 157 74 Z" fill="#161b3a"/>
+              <circle cx="180" cy="92" r="2.4" fill="#12142b"/>
+              <circle cx="202" cy="92" r="2.4" fill="#12142b"/>
+              <path d="M180 104 Q191 111 202 104" fill="none" stroke="#12142b" stroke-width="2" stroke-linecap="round"/>
             </g>
-            <rect x="150" y="268" width="40" height="108" rx="14" fill="#10173f"/>
-            <rect x="192" y="268" width="40" height="108" rx="14" fill="#151c46"/>
-            <rect x="146" y="366" width="50" height="20" rx="8" fill="#1c2140"/>
-            <rect x="188" y="366" width="50" height="20" rx="8" fill="#1c2140"/>
-            <rect x="120" y="152" width="25" height="98" rx="12.5" fill="#1428A0"/>
-            <circle cx="132" cy="258" r="13" fill="#e8b48f"/>
-            <rect x="144" y="132" width="94" height="138" rx="24" fill="#1428A0"/>
-            <line x1="191" y1="142" x2="191" y2="252" stroke="#0c1b74" stroke-width="3"/>
-            <rect x="163" y="160" width="18" height="18" rx="5" fill="#ffffff"/>
-            <circle cx="172" cy="169" r="5" fill="none" stroke="#1428A0" stroke-width="2"/>
-            <path d="M168 132 L191 152 L214 132 Z" fill="#0c1b74"/>
-            <rect x="144" y="254" width="94" height="14" rx="4" fill="#0a1030"/>
-            <rect x="234" y="150" width="24" height="66" rx="12" fill="#1428A0" transform="rotate(18 246 150)"/>
-            <circle cx="258" cy="212" r="12" fill="#e8b48f"/>
-            <rect x="180" y="112" width="22" height="24" rx="6" fill="#e8b48f"/>
-            <circle cx="191" cy="90" r="34" fill="#e8b48f"/>
-            <path d="M157 90 A34 34 0 0 1 225 90 L225 74 A34 34 0 0 0 157 74 Z" fill="#161b3a"/>
-            <circle cx="180" cy="92" r="2.4" fill="#12142b"/>
-            <circle cx="202" cy="92" r="2.4" fill="#12142b"/>
-            <path d="M180 104 Q191 111 202 104" fill="none" stroke="#12142b" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">پشتیبانی زنده</div>
+          <h2>تماس می‌گیرید، همان لحظه پیگیری می‌شود</h2>
+          <p>با تماس به مرکز خدمات سامسونگ نامی در تبریز، درخواست شما ثبت و توسط تیم فنی پیگیری می‌شود.</p>
+        </div>
+        <div class="hero-illustration flow-illustration">
+          <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+
+            <g class="customer-arm">
+              <path d="M118 140 Q140 110 118 85" fill="none" stroke="#333b57" stroke-width="20" stroke-linecap="round"/>
+              <g transform="rotate(18 116 80)">
+                <rect x="108" y="64" width="17" height="32" rx="5" fill="#12142b"/>
+                <rect x="111" y="68" width="11" height="18" rx="2" fill="#3d5ce0"/>
+              </g>
+            </g>
+
+            <rect x="50" y="118" width="78" height="92" rx="22" fill="#333b57"/>
+            <rect x="79" y="100" width="20" height="22" rx="6" fill="#e8b48f"/>
+            <circle cx="89" cy="78" r="30" fill="#e8b48f"/>
+            <path d="M59 78 A30 30 0 0 1 119 78 L119 62 A30 30 0 0 0 59 62 Z" fill="#232a44"/>
+            <circle cx="80" cy="80" r="2.2" fill="#12142b"/>
+            <circle cx="98" cy="80" r="2.2" fill="#12142b"/>
+            <path d="M80 90 Q89 96 98 90" fill="none" stroke="#12142b" stroke-width="2" stroke-linecap="round"/>
+
+            <path class="call-wave w1" d="M132 68 q14 12 0 26" fill="none" stroke="#1428A0" stroke-width="2.5" stroke-linecap="round"/>
+            <path class="call-wave w2" d="M140 60 q24 20 0 42" fill="none" stroke="#1428A0" stroke-width="2.5" stroke-linecap="round"/>
+            <path class="call-wave w3" d="M148 52 q34 28 0 58" fill="none" stroke="#1428A0" stroke-width="2.5" stroke-linecap="round"/>
+
+            <path d="M150 78 C 250 15, 330 15, 425 85" fill="none" stroke="#c7cee8" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+            <circle r="5" fill="#1428A0">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M150 78 C 250 15, 330 15, 425 85"/>
+            </circle>
+            <circle r="3.5" fill="#3d5ce0" opacity=".6">
+              <animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M150 78 C 250 15, 330 15, 425 85"/>
+            </circle>
+
+            <rect x="418" y="36" width="195" height="175" rx="20" fill="#ffffff" stroke="#e2e6f3" stroke-width="2"/>
+            <rect x="436" y="54" width="28" height="28" rx="9" fill="#1428A0"/>
+            <circle cx="450" cy="68" r="6.5" fill="none" stroke="#ffffff" stroke-width="2"/>
+            <text x="596" y="66" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="13" font-weight="800" fill="#12142b">مرکز خدمات نامی</text>
+            <text x="596" y="84" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="10.5" fill="#5c6278">پیگیری زنده درخواست</text>
+
+            <circle class="live-dot" cx="588" cy="110" r="4" fill="#0f8a5f"/>
+            <text x="580" y="113" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="10" fill="#0f8a5f">در حال بررسی</text>
+
+            <rect x="436" y="132" width="157" height="10" rx="5" fill="#eef1fb"/>
+            <rect class="progress-fill" x="436" y="132" width="157" height="10" rx="5" fill="#1428A0"/>
+
+            <text x="596" y="170" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="10" fill="#8890a5">تیم فنی در حال پیگیری است</text>
+
+            <g class="tech-check">
+              <circle cx="606" cy="46" r="14" fill="#0f8a5f" stroke="#ffffff" stroke-width="3"/>
+              <path d="M600 47 L604 51 L613 41" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
           </svg>
         </div>
       </div>
@@ -430,31 +527,31 @@ footer a:hover{color:#fff}
             <div class="service-icon"><svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="7" rx="2"/><path d="M5 13c-1 2-1.5 3.5-1.5 5M9 13c-.5 2-.8 3.5-.8 5M15 13c.3 2 .6 3.5 1 5M19 13c1 2 1.5 3.5 1.5 5"/><circle cx="19" cy="9.5" r="1" fill="currentColor" stroke="none"/></svg></div>
             <div class="service-copy"><h3>تعمیر کولر گازی سامسونگ</h3><p>بررسی سرمایش، روشن نشدن و عملکرد کلی دستگاه.</p></div>
             <div class="service-go">←</div>
-            <button class="service-link" data-page="air-conditioner">مشاهده کولر گازی</button>
+            <button class="service-link" data-page="air-conditioner"><span class="sr-only">مشاهده کولر گازی</span></button>
           </div>
           <div class="service-row">
             <div class="service-icon"><svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="8" y1="4.5" x2="8" y2="7"/><line x1="8" y1="11.5" x2="8" y2="14"/></svg></div>
             <div class="service-copy"><h3>تعمیر یخچال سامسونگ</h3><p>بررسی سرمایش، برفک‌زدگی، صدا و عملکرد دستگاه.</p></div>
             <div class="service-go">←</div>
-            <button class="service-link" data-page="refrigerator">مشاهده یخچال</button>
+            <button class="service-link" data-page="refrigerator"><span class="sr-only">مشاهده یخچال</span></button>
           </div>
           <div class="service-row">
             <div class="service-icon"><svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13.5" r="5.5"/><circle cx="12" cy="13.5" r="2.3"/><line x1="6.5" y1="5" x2="8.5" y2="5"/><circle cx="17" cy="5" r="0.7" fill="currentColor" stroke="none"/></svg></div>
             <div class="service-copy"><h3>تعمیر لباسشویی سامسونگ</h3><p>بررسی شستشو، تخلیه، آبگیری و خطاهای دستگاه.</p></div>
             <div class="service-go">←</div>
-            <button class="service-link" data-page="washing-machine">مشاهده لباسشویی</button>
+            <button class="service-link" data-page="washing-machine"><span class="sr-only">مشاهده لباسشویی</span></button>
           </div>
           <div class="service-row">
             <div class="service-icon"><svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><line x1="3" y1="6.5" x2="21" y2="6.5"/><circle cx="6.5" cy="4.3" r="0.7" fill="currentColor" stroke="none"/><circle cx="9.5" cy="4.3" r="0.7" fill="currentColor" stroke="none"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="18" y2="16"/></svg></div>
             <div class="service-copy"><h3>تعمیر ظرفشویی سامسونگ</h3><p>بررسی شستشو، تخلیه آب، آبگیری و عملکرد دستگاه.</p></div>
             <div class="service-go">←</div>
-            <button class="service-link" data-page="dishwasher">مشاهده ظرفشویی</button>
+            <button class="service-link" data-page="dishwasher"><span class="sr-only">مشاهده ظرفشویی</span></button>
           </div>
           <div class="service-row">
             <div class="service-icon"><svg class="device-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="10" rx="2"/><line x1="12" y1="13" x2="12" y2="17"/><path d="M6 21c0-3 2.5-5 6-5s6 2 6 5"/><circle cx="7" cy="21" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="21" r="1" fill="currentColor" stroke="none"/></svg></div>
             <div class="service-copy"><h3>تعمیر جاروبرقی سامسونگ</h3><p>بررسی مکش، روشن نشدن و عملکرد دستگاه.</p></div>
             <div class="service-go">←</div>
-            <button class="service-link" data-page="vacuum-cleaner">مشاهده جاروبرقی</button>
+            <button class="service-link" data-page="vacuum-cleaner"><span class="sr-only">مشاهده جاروبرقی</span></button>
           </div>
         </div>
       </div>
